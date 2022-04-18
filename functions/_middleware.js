@@ -8,7 +8,7 @@ const USERNAME = 'demouser'
 const PASSWORD = 'demopassword'
 const REALM = 'Secure Area'
 
-const handleRequest = async ({ request, next }) {
+const handleRequest = async ({ request, next }) => {
   const authorization = request.headers.get('authorization')
   if (!request.headers.has('authorization')) {
     return getUnauthorizedResponse(
@@ -22,7 +22,7 @@ const handleRequest = async ({ request, next }) {
     )
   }
   return await next()
-}
+};
 
 /**
  * Break down base64 encoded authorization string into plain-text username and password
